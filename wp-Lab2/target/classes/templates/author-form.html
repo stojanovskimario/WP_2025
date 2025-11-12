@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${author.id == null ? 'Add New Author' : 'Edit Author'}"></title>
+</head>
+<body>
+<h1 th:text="${author.id == null ? 'Add New Author' : 'Edit Author'}"></h1>
+
+<form th:action="@{${formAction}}" method="post">
+
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" th:value="${author.name}" required/><br/>
+
+    <label for="surname">Surname:</label>
+    <input type="text" id="surname" name="surname" th:value="${author.surname}" required/><br/>
+
+    <label for="country">Country:</label>
+    <input type="text" id="country" name="country" th:value="${author.country}" required/><br/>
+
+    <label for="biography">Biography:</label><br/>
+    <textarea id="biography" name="biography" rows="5" cols="40" th:text="${author.biography}" required></textarea><br/>
+
+    <button type="submit">Submit</button>
+</form>
+
+
+<br/>
+<a href="/authors">Back to Authors List</a>
+</body>
+</html>
